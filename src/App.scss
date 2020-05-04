@@ -1,0 +1,11 @@
+@import './dashboard/Dashboard.scss';
+@import './data-wrapper/DataWrapper.scss';
+@import './data-wrapper/search/Search.scss';
+
+html,
+body,
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Patrick Hand';
+}
