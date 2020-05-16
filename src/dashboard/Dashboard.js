@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import DataWrapper from '../data-wrapper/DataWrapper';
 import Search from '../data-wrapper/search/Search';
-import { isObjEmpty } from '../utils/utils';
 
 const Dashboard = () => {
   const [weatherData, setWeatherData] = useState({});
