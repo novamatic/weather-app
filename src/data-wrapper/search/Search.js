@@ -1,38 +1,50 @@
 import React, { useEffect, useState } from 'react';
 import cities from './../../assets/current.city.list.json';
 
-import { Select } from 'antd';
+import { AutoComplete } from 'antd';
 
 const Search = () => {
   const [citiesList, setCitiesList] = useState([]);
   const [filteredCities, setFilteredCities] = useState([]);
-  const [input, setInput] = useState('');
+  const [cityId, setCityId] = useState('');
+
   useEffect(() => {
-    setCitiesList(cities.map(({ name, country }) => `${name}, ${country}`));
+    setCitiesList(
+      cities.map(({ name, country, id }) => ({
+        value: `${name}, ${country}`,
+        id,
+      }))
+    );
   }, [setCitiesList]);
 
   const fetchWeatherData = () => {
-    console.log(citiesList);
+    console.log(cityId);
   };
 
-  const handleChange = (val) => {
+  const handleSelect = (val) =>
+    setCityId(filteredCities.filter((city) => city.value === val)[0].id);
+
+  const handleSearch = (val) => {
     const value = val.toLowerCase();
-    console.log(value);
     if (value.length > 2) {
       setFilteredCities(
-        citiesList.filter((city) => city.toLowerCase().includes(value))
+        citiesList.filter((city) => city.value.toLowerCase().includes(value))
       );
+    } else {
+      setFilteredCities([]);
     }
   };
 
   return (
     <div className="search-container">
       <h1>Check the weather outside</h1>
-      <Select showSearch onChange={handleChange}>
-        {citiesList.map((city) => (
-          <Select.Option key={city}>{city}</Select.Option>
-        ))}
-      </Select>
+      <AutoComplete
+        className="select-input"
+        placeholder="Type your city . . ."
+        options={filteredCities}
+        onSearch={handleSearch}
+        onSelect={handleSelect}
+      />
       <button onClick={fetchWeatherData}>Find out!</button>
     </div>
   );

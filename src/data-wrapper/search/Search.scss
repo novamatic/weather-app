@@ -5,6 +5,7 @@
   margin: 0 auto;
   padding-top: 150px;
   align-items: center;
+  animation: leftToRight 1s ease-out;
 
   h1 {
     font-size: 54px;
@@ -12,14 +13,14 @@
     margin-bottom: 20px;
   }
 
-  input {
+  .select-input {
     padding: 15px;
     border-style: none;
     border-radius: 5px;
-    height: 35px;
+    height: 55px;
     width: 50%;
     color: #adadad;
-    font-size: 32px;
+    font-size: 20px;
     margin-bottom: 20px;
 
     &::placeholder {
@@ -41,5 +42,17 @@
     background-color: #516e51;
     border: none;
     color: #f4f4f4;
+  }
+}
+
+@keyframes leftToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-130px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
   }
 }
