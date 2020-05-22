@@ -3,7 +3,7 @@ import cities from './../../assets/current.city.list.json';
 
 import { AutoComplete } from 'antd';
 
-const Search = () => {
+const Search = ({ fetchWeatherData }) => {
   const [citiesList, setCitiesList] = useState([]);
   const [filteredCities, setFilteredCities] = useState([]);
   const [cityId, setCityId] = useState('');
@@ -17,8 +17,8 @@ const Search = () => {
     );
   }, [setCitiesList]);
 
-  const fetchWeatherData = () => {
-    console.log(cityId);
+  const handleButtonClick = () => {
+    fetchWeatherData(cityId);
   };
 
   const handleSelect = (val) =>
@@ -45,7 +45,7 @@ const Search = () => {
         onSearch={handleSearch}
         onSelect={handleSelect}
       />
-      <button onClick={fetchWeatherData}>Find out!</button>
+      <button onClick={handleButtonClick}>Find out!</button>
     </div>
   );
 };
