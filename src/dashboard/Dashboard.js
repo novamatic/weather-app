@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import DataWrapper from '../data-wrapper/DataWrapper';
+import { fetchCurrentWeatherByID } from '../weather-service/weather-service';
 import Search from '../data-wrapper/search/Search';
 
 const Dashboard = () => {
   const [weatherData, setWeatherData] = useState({});
 
+  const fetchWeatherData = (id) => {
+    fetchCurrentWeatherByID(id);
+  };
+
   return (
     <div className="main-container">
-      <DataWrapper>
-        <Search />
-      </DataWrapper>
+      <div className="data-wrapper-container">
+        <Search fetchWeatherData={fetchWeatherData} />
+      </div>
     </div>
   );
 };
