@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { fetchCurrentWeatherByID } from '../weather-service/weather-service';
 import Search from '../data-wrapper/search/Search';
 import { isObjEmpty } from '../utils/utils';
+import WeatherInfo from '../data-wrapper/weather-info/WeatherInfo';
 
 const Dashboard = () => {
   const [weatherData, setWeatherData] = useState({});
@@ -18,7 +19,7 @@ const Dashboard = () => {
         {isObjEmpty(weatherData) ? (
           <Search fetchWeatherData={fetchWeatherData} />
         ) : (
-          <p>Henlo</p>
+          <WeatherInfo weatherData={weatherData} />
         )}
       </div>
     </div>
