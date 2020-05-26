@@ -19,7 +19,10 @@ const Dashboard = () => {
         {isObjEmpty(weatherData) ? (
           <Search fetchWeatherData={fetchWeatherData} />
         ) : (
-          <WeatherInfo weatherData={weatherData} />
+          <WeatherInfo
+            weatherData={weatherData}
+            setWeatherData={setWeatherData}
+          />
         )}
       </div>
     </div>

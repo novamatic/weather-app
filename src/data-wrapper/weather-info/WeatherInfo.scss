@@ -5,6 +5,29 @@
   margin: 0 auto;
   align-items: center;
   animation: rightToLeft 1s ease-out;
+
+  .header {
+    margin-top: 50px;
+  }
+
+  .weather-box {
+    display: flex;
+
+    .weather-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h2 {
+        font-size: 32px;
+        text-transform: uppercase;
+      }
+
+      p {
+        font-size: 20px;
+      }
+    }
+  }
 }
 
 @keyframes rightToLeft {

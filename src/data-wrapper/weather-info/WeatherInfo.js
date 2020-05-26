@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WeatherInfo = ({ weatherData }) => {
+const WeatherInfo = ({ weatherData, setWeatherData }) => {
   const { name, weather, main } = weatherData;
 
   const setTemperaturePrecision = (num) => Number(num).toFixed(1);
@@ -25,6 +25,9 @@ const WeatherInfo = ({ weatherData }) => {
           </p>
         </div>
       </div>
+      <button className="button" onClick={() => setWeatherData({})}>
+        Back to dashboard
+      </button>
     </div>
   );
 };
