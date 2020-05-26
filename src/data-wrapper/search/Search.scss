@@ -7,12 +7,6 @@
   align-items: center;
   animation: leftToRight 1s ease-out;
 
-  h1 {
-    font-size: 54px;
-    color: #707070;
-    margin-bottom: 20px;
-  }
-
   .select-input {
     padding: 15px;
     border-style: none;
@@ -31,17 +25,6 @@
     &:focus {
       border-style: none;
     }
-  }
-
-  button {
-    height: 70px;
-    width: 270px;
-    font-family: 'Roboto';
-    font-size: 30px;
-    border-radius: 5px;
-    background-color: #516e51;
-    border: none;
-    color: #f4f4f4;
   }
 }
 

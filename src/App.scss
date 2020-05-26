@@ -1,6 +1,7 @@
 @import '~antd/dist/antd.css';
 @import './dashboard/Dashboard.scss';
 @import './data-wrapper/search/Search.scss';
+@import './data-wrapper/weather-info/WeatherInfo.scss';
 
 html,
 body,
@@ -8,4 +9,21 @@ body,
   padding: 0;
   margin: 0;
   font-family: 'Patrick Hand';
+}
+
+h1 {
+  font-size: 54px;
+  color: #707070;
+  margin-bottom: 20px;
+}
+
+.button {
+  height: 70px;
+  width: 270px;
+  font-family: 'Roboto';
+  font-size: 30px;
+  border-radius: 5px;
+  background-color: #516e51;
+  border: none;
+  color: #f4f4f4;
 }

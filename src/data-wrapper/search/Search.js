@@ -45,7 +45,9 @@ const Search = ({ fetchWeatherData }) => {
         onSearch={handleSearch}
         onSelect={handleSelect}
       />
-      <button onClick={handleButtonClick}>Find out!</button>
+      <button className="button" onClick={handleButtonClick}>
+        Find out!
+      </button>
     </div>
   );
 };
