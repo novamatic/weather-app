@@ -10,9 +10,6 @@ const Dashboard = () => {
   const fetchWeatherData = (id) => {
     fetchCurrentWeatherByID(id, setWeatherData);
   };
-
-  console.log(weatherData);
-
   return (
     <div className="main-container">
       <div className="data-wrapper-container">
