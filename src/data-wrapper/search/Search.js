@@ -7,6 +7,7 @@ const Search = ({ fetchWeatherData }) => {
   const [citiesList, setCitiesList] = useState([]);
   const [filteredCities, setFilteredCities] = useState([]);
   const [cityId, setCityId] = useState('');
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     setCitiesList(
@@ -18,14 +19,23 @@ const Search = ({ fetchWeatherData }) => {
   }, [setCitiesList]);
 
   const handleButtonClick = () => {
-    fetchWeatherData(cityId);
+    if (!cityId) {
+      setError(true);
+    } else {
+      fetchWeatherData(cityId);
+    }
   };
 
-  const handleSelect = (val) =>
+  const handleSelect = (val) => {
     setCityId(filteredCities.filter((city) => city.value === val)[0].id);
+    setError(false);
+  };
 
   const handleSearch = (val) => {
+    setCityId('');
     const value = val.toLowerCase();
+    if (val.length === 0) setError(false);
+
     if (value.length > 2) {
       setFilteredCities(
         citiesList.filter((city) => city.value.toLowerCase().includes(value))
@@ -45,6 +55,9 @@ const Search = ({ fetchWeatherData }) => {
         onSearch={handleSearch}
         onSelect={handleSelect}
       />
+      {error ? (
+        <span className="error-message">Please choose city from list</span>
+      ) : null}
       <button className="button" onClick={handleButtonClick}>
         Find out!
       </button>

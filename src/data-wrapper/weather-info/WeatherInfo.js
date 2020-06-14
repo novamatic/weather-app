@@ -1,13 +1,15 @@
 import React from 'react';
 
 const WeatherInfo = ({ weatherData, setWeatherData }) => {
-  const { name, weather, main } = weatherData;
+  const { name, weather, main, sys } = weatherData;
 
   const setTemperaturePrecision = (num) => Number(num).toFixed(1);
 
   return (
     <div className="weather-container">
-      <h1 className="header">Weather for {name}</h1>
+      <h1 className="header">
+        Weather for {name} in {sys.country}
+      </h1>
       <div className="weather-box">
         <div className="graphic-box">
           <img
