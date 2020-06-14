@@ -6,6 +6,7 @@
   padding-top: 150px;
   align-items: center;
   animation: leftToRight 1s ease-out;
+  position: relative;
 
   .select-input {
     padding: 15px;
@@ -26,12 +27,33 @@
       border-style: none;
     }
   }
+
+  .error-message {
+    position: absolute;
+    top: 244px;
+    left: 192px;
+    color: red;
+
+    animation: bottomToTop 0.2s ease-out;
+  }
 }
 
 @keyframes leftToRight {
   0% {
     opacity: 0;
     transform: translateX(-130px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes bottomToTop {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
 
   100% {

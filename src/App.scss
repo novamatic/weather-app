@@ -20,10 +20,14 @@ h1 {
 .button {
   height: 70px;
   width: 270px;
-  font-family: 'Roboto';
   font-size: 30px;
   border-radius: 5px;
   background-color: #516e51;
   border: none;
   color: #f4f4f4;
+}
+
+.ant-select-dropdown {
+  min-width: 320px !important;
+  width: 320px !important;
 }
